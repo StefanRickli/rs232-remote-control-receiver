@@ -7,7 +7,7 @@
 
 #include <config.h>
 #include <event.h>
-#include <mac_layer.h>
+#include <transmit.h>
 #include <ringbuffer.h>
 #include <timers.h>
 
@@ -53,8 +53,11 @@ void main(void) {
 
 	gpio_init_player_dev(player_dev_sw1_handler, player_dev_sw2_handler);
 
-	mac_init(lora_rx_packet_handler, false, true);
-
+	lora_init();
+	debug_uart_sendstr("Player Dev \r\n");
+	//led1_on();
+	__delay_cycles(50000);
+	//led1_off();
 	// Enabling global interrupts
 	_EINT();
 
