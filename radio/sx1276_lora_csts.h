@@ -454,15 +454,15 @@ Maintainer: Miguel Luis and Gregory Cristian
 #define RFLR_INVERTIQ2_ON                           0x19
 #define RFLR_INVERTIQ2_OFF                          0x1D
 
-
-// RegDioMapping1
+/*!
+ * RegDioMapping1
+ */
 #define RFLR_DIOMAPPING1_DIO0_MASK                  0x3F
 #define RFLR_DIOMAPPING1_DIO0_00                    0x00  // Default
 #define RFLR_DIOMAPPING1_DIO0_01                    0x40
 #define RFLR_DIOMAPPING1_DIO0_10                    0x80
 #define RFLR_DIOMAPPING1_DIO0_11                    0xC0
 
-/* RIC: unused
 #define RFLR_DIOMAPPING1_DIO1_MASK                  0xCF
 #define RFLR_DIOMAPPING1_DIO1_00                    0x00  // Default
 #define RFLR_DIOMAPPING1_DIO1_01                    0x10
@@ -481,7 +481,9 @@ Maintainer: Miguel Luis and Gregory Cristian
 #define RFLR_DIOMAPPING1_DIO3_10                    0x02
 #define RFLR_DIOMAPPING1_DIO3_11                    0x03
 
-// RegDioMapping2
+/*!
+ * RegDioMapping2
+ */
 #define RFLR_DIOMAPPING2_DIO4_MASK                  0x3F
 #define RFLR_DIOMAPPING2_DIO4_00                    0x00  // Default
 #define RFLR_DIOMAPPING2_DIO4_01                    0x40
@@ -497,7 +499,6 @@ Maintainer: Miguel Luis and Gregory Cristian
 #define RFLR_DIOMAPPING2_MAP_MASK                   0xFE
 #define RFLR_DIOMAPPING2_MAP_PREAMBLEDETECT         0x01
 #define RFLR_DIOMAPPING2_MAP_RSSI                   0x00  // Default
-*/
 
 /*!
  * RegVersion (Read Only)

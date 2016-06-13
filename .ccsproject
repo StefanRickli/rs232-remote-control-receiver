@@ -11,4 +11,5 @@
 	<createSlaveProjects value=""/>
 	<templateProperties value="id=com.ti.common.project.core.emptyProjectTemplate,"/>
 	<isTargetManual value="false"/>
+	<origin value="C:/Users/Robin Kramer/Documents/P&amp;S_Microcontroller/Projekt/TI-Micros/01 LoRa_Player"/>
 </projectOptions>

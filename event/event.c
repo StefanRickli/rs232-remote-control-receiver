@@ -109,6 +109,6 @@ void event_loop(void)
 			FIFO_INCR(_pending_events_first, EVENT_MAX_COUNT);
 		}
 		// zzZz...
-		LPM1;
+		//_bis_SR_register(LPM3_bits + GIE);
 	}
 }

@@ -8,9 +8,10 @@
 #ifndef CONFIG_H_
 #define CONFIG_H_
 
-//#LORA_ENABLE
+#define PLAYER_DEV // to make it easier to copy paste Code RK
+#define LORA_ENABLE
 
-#define DEBUG_UART_RX_BUFFER_SIZE	64u
+#define DEBUG_UART_RX_BUFFER_SIZE	64u //required by UART code: DON'T TOUCH
 #define DEBUG_UART_TX_BUFFER_SIZE	64u
 #define COMM_UART_RX_BUFFER_SIZE	64u
 #define COMM_UART_TX_BUFFER_SIZE	64u
@@ -36,28 +37,6 @@ enum Player_Mecha_Status
 	OTHER
 };
 
-/*
- * Packet type
- */
-enum Packet_type_t
-{
-	SENSING_DATA,			// Deprecated, Sensing data
-	PLAYER_COMMAND,			// Command is in Tascam formatting
-	CUSTOM_COMMAND,			// Command is in custom formatting (one int following)
-	PLAYER_COMMAND_SUCC,	// Command has been executed successfully
-	PLAYER_COMMAND_RESPONSE,// Response with one int for the command and data (char[])
-	CUSTOM_COMMAND_RESPONSE	// Response with one int for the command and data (char[])
-};
-
-struct Packet_t
-{
-	enum Packet_type_t type;	// Type of the packet
-	int command_no;				// Information: specific to each type
-	enum Player_Mecha_Status player_status;
-	char text[MAX_TRACK_NAME_LENGTH];
-};
-
-// Broadcast address
 #define BROADCAST_ADDRESS	0x00u
 
 // Assumed maximum payload packet size
@@ -72,16 +51,23 @@ struct Packet_t
 #define MIN_SENSING_PERIOD	3*4096u	// 3s
 
 // Address of the cluster head
-#define CLUSTER_HEAD_ADDRESS	0x55u
+#define PLAYER_ADDRESS	0x55u
 
 // Address of the sink
-#define SINK_ADDRESS			0x54u
+#define REMOTE_ADDRESS	0x54u
 
 // Address of the end-devices sensor nodes
 #define SENSOR_NODE_1			0x53u
 
 // My address
-#define NODE_ADDRESS	SENSOR_NODE_1
+#ifdef PLAYER_DEV
+#define NODE_ADDRESS	PLAYER_ADDRESS
+#define TARGET_ADDRESS REMOTE_ADDRESS
 
+#elif defined(REMOTE_DEV)
+#define NODE_ADDRESS	REMOTE_ADDRESS
+#define TARGET_ADDRESS PLAYER_ADDRESS
+#endif
 
 #endif /* CONFIG_H_ */
+

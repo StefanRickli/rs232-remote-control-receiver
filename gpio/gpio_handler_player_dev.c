@@ -9,15 +9,15 @@
 
 #include <ascii_comm_functions_player_dev.h>
 #include "config.h"
-#include "mac_layer.h"
+#include <transmit.h>
 
 /**
  * SW1: STOP
  */
 void player_dev_sw1_handler(void)
 {
-	debug_uart_sendstr("<SW1 STOP\r");
-	debug_uart_sendstr("<10\r");
+	debug_uart_sendstr("<SW1 STOP\n \r");
+	debug_uart_sendstr("<10\n \r");
 
 	tascam_uart_sendstr("\n010\r");
 
@@ -25,7 +25,7 @@ void player_dev_sw1_handler(void)
 	packet.type = PLAYER_COMMAND;
 	packet.command_no = 0x10;
 
-	mac_lora_tx(BROADCAST_ADDRESS, (char*)(&packet), sizeof(struct Packet_t));
+	lora_send_pkt(&packet);
 }
 
 /**
@@ -42,5 +42,5 @@ void player_dev_sw2_handler(void)
 	packet.type = PLAYER_COMMAND;
 	packet.command_no = 0x12;
 
-	mac_lora_tx(BROADCAST_ADDRESS, (char*)(&packet), sizeof(struct Packet_t));
+	lora_send_pkt(&packet);
 }

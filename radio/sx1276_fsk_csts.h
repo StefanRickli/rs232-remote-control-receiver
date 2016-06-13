@@ -1020,15 +1020,15 @@ Maintainer: Miguel Luis and Gregory Cristian
 
 #define RF_IRQFLAGS2_LOWBAT                         0x01
 
-
-// RegDioMapping1
+/*!
+ * RegDioMapping1
+ */
 #define RF_DIOMAPPING1_DIO0_MASK                    0x3F
 #define RF_DIOMAPPING1_DIO0_00                      0x00  // Default
 #define RF_DIOMAPPING1_DIO0_01                      0x40
 #define RF_DIOMAPPING1_DIO0_10                      0x80
 #define RF_DIOMAPPING1_DIO0_11                      0xC0
 
-/* RIC: unused
 #define RF_DIOMAPPING1_DIO1_MASK                    0xCF
 #define RF_DIOMAPPING1_DIO1_00                      0x00  // Default
 #define RF_DIOMAPPING1_DIO1_01                      0x10
@@ -1047,7 +1047,9 @@ Maintainer: Miguel Luis and Gregory Cristian
 #define RF_DIOMAPPING1_DIO3_10                      0x02
 #define RF_DIOMAPPING1_DIO3_11                      0x03
 
-// RegDioMapping2
+/*!
+ * RegDioMapping2
+ */
 #define RF_DIOMAPPING2_DIO4_MASK                    0x3F
 #define RF_DIOMAPPING2_DIO4_00                      0x00  // Default
 #define RF_DIOMAPPING2_DIO4_01                      0x40
@@ -1063,7 +1065,6 @@ Maintainer: Miguel Luis and Gregory Cristian
 #define RF_DIOMAPPING2_MAP_MASK                     0xFE
 #define RF_DIOMAPPING2_MAP_PREAMBLEDETECT           0x01
 #define RF_DIOMAPPING2_MAP_RSSI                     0x00  // Default
-*/
 
 /*!
  * RegVersion ( Read Only )
